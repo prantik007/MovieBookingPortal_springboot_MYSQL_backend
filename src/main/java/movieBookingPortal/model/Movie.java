@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "movies")
-public class movie {
+public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -52,7 +52,7 @@ public class movie {
 
     @Override
     public String toString() {
-        return "movie{" +
+        return "Movie{" +
                 "id=" + id +
                 ", movieName='" + movieName + '\'' +
                 ", movieCaption='" + movieCaption + '\'' +

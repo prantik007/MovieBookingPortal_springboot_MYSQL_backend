@@ -1,7 +1,7 @@
 package movieBookingPortal.repository;
 
-import movieBookingPortal.model.movie;
+import movieBookingPortal.model.Movie;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface MovieRepository extends JpaRepository<movie, Long> {
+public interface MovieRepository extends JpaRepository<Movie, Long> {
 }

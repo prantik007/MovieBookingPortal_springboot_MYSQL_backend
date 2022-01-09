@@ -1,33 +1,24 @@
 package movieBookingPortal.controller;
 
-import movieBookingPortal.model.user;
-import movieBookingPortal.repository.UserRepository;
+import movieBookingPortal.model.User;
+import movieBookingPortal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path="api/user")
 public class UserController {
     @Autowired
-    private UserRepository userRepository;
-
-    @PostMapping(path="/addUser")
-    public @ResponseBody String addNewUser(@RequestParam String name,String email, String password){
-        user u=new user();
-        u.setName(name);
-        u.setEmail(email);
-        u.setPassword(password);
-
-        userRepository.save(u);
-        return "Saved new user";
-
-    }
+    private UserService userService;
 
     @GetMapping(path="/allUsers")
-    public @ResponseBody Iterable<user> getAllUsers(){
-        return userRepository.findAll();
+    public ResponseEntity<List<User>> getAllUsers(){
+        List<User> users=userService.getAllUsers();
+        return new ResponseEntity<> (users,HttpStatus.OK);
+
     }
-
-
-
 }
