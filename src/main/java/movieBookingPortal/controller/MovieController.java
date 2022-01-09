@@ -17,9 +17,15 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping(path = "/allMovies")
-    public ResponseEntity<List<Movie>> getAllMovies(){
-        List<Movie> movies=movieService.getAllMovies();
+    public ResponseEntity<List<Movie>> getAllMovie(){
+        List<Movie> movies=movieService.getAllMovie();
         return new ResponseEntity<> (movies, HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/find/{id}")
+    public ResponseEntity<Movie> findMovieById(@PathVariable("id") Long id){
+        Movie movie=movieService.findMovieById(id);
+        return new ResponseEntity<>(movie,HttpStatus.OK);
     }
 
 

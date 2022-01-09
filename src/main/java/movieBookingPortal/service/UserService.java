@@ -32,7 +32,7 @@ public class UserService {
 
 
     public
-    List<User> getAllUsers(){
+    List<User> getAllUser(){
         return userRepository.findAll();
     }
 
