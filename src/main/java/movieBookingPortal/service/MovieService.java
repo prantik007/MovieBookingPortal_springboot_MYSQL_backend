@@ -18,8 +18,8 @@ public class MovieService {
 
     @PostMapping(path = "/addMovie")
     public @ResponseBody
-    String addNewMovie(@RequestParam String movieName, String movieCaption, int price){
-        Movie mv=new Movie();
+    String addNewMovie(@RequestParam String movieName, String movieCaption, int price) {
+        Movie mv = new Movie();
         mv.setMovieName(movieName);
         mv.setMovieCaption(movieCaption);
         mv.setPrice(price);
@@ -29,12 +29,11 @@ public class MovieService {
     }
 
 
-
-    public List<Movie> getAllMovie(){
+    public List<Movie> getAllMovie() {
         return movieRepository.findAll();
     }
 
-    public Movie findMovieById(Long id){
+    public Movie findMovieById(Long id) {
         return movieRepository.findMovieById(id);
     }
 }
