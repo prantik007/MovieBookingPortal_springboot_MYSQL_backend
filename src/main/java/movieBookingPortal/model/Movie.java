@@ -15,8 +15,15 @@ public class Movie {
     @Column(name = "movie_caption")
     String movieCaption;
 
+    @Column(name = "img_src")
+    String imgSrc;
+
     @Column(name = "price")
     private int price;
+
+    Movie(){
+
+    }
 
     public long getId() {
         return id;
@@ -42,6 +49,14 @@ public class Movie {
         this.movieCaption = movieCaption;
     }
 
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
+    }
+
     public int getPrice() {
         return price;
     }
@@ -56,7 +71,10 @@ public class Movie {
                 "id=" + id +
                 ", movieName='" + movieName + '\'' +
                 ", movieCaption='" + movieCaption + '\'' +
+                ", imgSrc='" + imgSrc + '\'' +
                 ", price=" + price +
                 '}';
     }
+
+
 }

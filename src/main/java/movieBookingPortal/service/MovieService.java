@@ -16,17 +16,7 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
-    @PostMapping(path = "/addMovie")
-    public @ResponseBody
-    String addNewMovie(@RequestParam String movieName, String movieCaption, int price) {
-        Movie mv = new Movie();
-        mv.setMovieName(movieName);
-        mv.setMovieCaption(movieCaption);
-        mv.setPrice(price);
 
-        movieRepository.save(mv);
-        return "Saved Movie";
-    }
 
 
     public List<Movie> getAllMovie() {
@@ -35,5 +25,9 @@ public class MovieService {
 
     public Movie findMovieById(Long id) {
         return movieRepository.findMovieById(id);
+    }
+
+    public Movie addMovie(Movie movie) {
+        return movieRepository.save(movie);
     }
 }

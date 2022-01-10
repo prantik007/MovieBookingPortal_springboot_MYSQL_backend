@@ -27,5 +27,11 @@ public class MovieController {
         return new ResponseEntity<>(movie, HttpStatus.OK);
     }
 
+    @PostMapping(path = "/addMovie")
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie){
+        Movie newMovie=movieService.addMovie(movie);
+        return new ResponseEntity<>(newMovie,HttpStatus.CREATED);
+    }
+
 
 }
