@@ -10,18 +10,20 @@ public class Movie {
     private long id;
 
     @Column(name = "movie_name")
-    String movieName;
+    private String movieName;
 
     @Column(name = "movie_caption")
-    String movieCaption;
+    private String movieCaption;
 
     @Column(name = "img_src")
-    String imgSrc;
+    private String imgSrc;
 
     @Column(name = "price")
     private int price;
 
-    Movie(){
+
+
+    public Movie() {
 
     }
 

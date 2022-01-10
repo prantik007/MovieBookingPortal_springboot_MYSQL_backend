@@ -8,14 +8,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin
 @RestController
-@RequestMapping(path = "/api/movie")
+@RequestMapping(path = "api/movie")
 public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @GetMapping(path = "/allMovies")
+
+    @GetMapping(path = "/allMovie")
     public ResponseEntity<List<Movie>> getAllMovie() {
         List<Movie> movies = movieService.getAllMovie();
         return new ResponseEntity<>(movies, HttpStatus.OK);

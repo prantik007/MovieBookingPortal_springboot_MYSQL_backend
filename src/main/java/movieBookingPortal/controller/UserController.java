@@ -4,6 +4,7 @@ import movieBookingPortal.model.User;
 import movieBookingPortal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class UserController {
 
 
 
-    @GetMapping(path = "/allUsers")
+    @GetMapping(path = "/allUser")
     public ResponseEntity<List<User>> getAllUser() {
         List<User> users = userService.getAllUser();
         return new ResponseEntity<>(users, HttpStatus.OK);
@@ -32,7 +33,7 @@ public class UserController {
     }
 
 
-    @PostMapping("/addUser")
+    @PostMapping(path = "/addUser")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User newUser = userService.addUser(user);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
